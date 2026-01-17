@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAN Card Tampering Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="card">
+    <h1>PAN Card Tampering Detector</h1>
+    <p>Upload a PAN card image to verify authenticity</p>
+
+    <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="pan_image" required>
+        <button type="submit">Check PAN Card</button>
+    </form>
+
+    {% if result %}
+        <div class="result">{{ result }}</div>
+    {% endif %}
+</div>
+
+</body>
+</html>
